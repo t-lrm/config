@@ -13,3 +13,7 @@ powershell -ExecutionPolicy Bypass -File .\windows\main.ps1
 ```
 
 Then reboot the computer and all the changes should apply.
+
+## TODO
+- Add a secondary keyboard (FR)
+- Create a `config.json` to store personnal data that should be manually added

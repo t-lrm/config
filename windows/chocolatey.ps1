@@ -22,7 +22,6 @@ vscode `
 sublimetext2 `
 jetbrainstoolbox `
 dotnet `
-git `
 github-desktop `
 wezterm `
 wireguard `
@@ -36,3 +35,9 @@ javaruntime `
 choco install discord
 $discordPath = Get-ChildItem "$env:LOCALAPPDATA\Discord\app-*\discord.exe" | Select-Object -First 1
 & $discordPath.FullName --squirrel-firstrun
+
+# Force git to use the ssh agent so it's compatible with 1Password SSH Agent
+choco install git
+git config --global core.sshCommand "C:/Windows/System32/OpenSSH/ssh.exe"
+git config --global user.email "you@example.com"
+git config --global user.name "Your Name"
