@@ -7,7 +7,6 @@ choco install `
 googlechrome `
 firefox `
 tor-browser `
-discord `
 spotify `
 1password `
 obsidian `
@@ -32,3 +31,8 @@ zebar `
 python `
 javaruntime `
 -y
+
+# Discord installation is specific because of bugs in the installer
+choco install discord
+$discordPath = Get-ChildItem "$env:LOCALAPPDATA\Discord\app-*\discord.exe" | Select-Object -First 1
+& $discordPath.FullName --squirrel-firstrun
