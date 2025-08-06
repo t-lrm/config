@@ -20,7 +20,7 @@ $taskbar_layout =
 </LayoutModificationTemplate>
 "@
 
-# prepare provisioning folder
+# Set the pinned applications
 [System.IO.FileInfo]$provisioning = "$($env:ProgramData)\provisioning\tasbar_layout.xml"
 if (!$provisioning.Directory.Exists) {
     $provisioning.Directory.Create()
@@ -55,6 +55,9 @@ foreach ($setting in $settings) {
     }
     $registry.Dispose()
 }
+
+# Hide the search icon
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Search" -Name "SearchboxTaskbarMode" -Value 0
 
 # Restart the explorer to apply the changes
 Stop-Process -Name explorer -Force
