@@ -75,6 +75,6 @@ ridersolution() {
 
 # --- Custom PS1 with git branch info ---
 parse_git_branch() {
-  git branch 2>/dev/null | grep '*' | sed 's/* //'
+    git branch 2>/dev/null | grep '*' | sed 's/* //'
 }
 PS1='\[\e[32m\]\u@\h\[\e[m\]:\[\e[34m\]\w\[\e[m\]$([[ $(parse_git_branch) ]] && echo " (\[\e[31m\]$(parse_git_branch)\[\e[m\])")\$ '
