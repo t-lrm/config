@@ -6,3 +6,6 @@ $currentLangList = Get-WinUserLanguageList
 $french = New-WinUserLanguageList fr-FR
 $currentLangList.Add($french[0])
 Set-WinUserLanguageList $currentLangList -Force
+
+# Set the short date format to DD/MM/YYYY
+Set-ItemProperty -Path "HKCU:\Control Panel\International" -Name sShortDate -Value "dd/MM/yyyy"
